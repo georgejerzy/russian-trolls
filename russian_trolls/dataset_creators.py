@@ -17,7 +17,6 @@ class ExternalDatasetCreator:
         Args:
             raw_input_data_dir: directory where the raw twitter stream is held f.e. '../data/twitter-stream/2017/09/10'
         """
-        self.preprocessor = TweetsPreprocessor()
         self.raw_input_data_dir = raw_input_data_dir
 
     def load_and_preprocess_single_file(self, file_path: str) -> pd.DataFrame:
@@ -35,9 +34,9 @@ class ExternalDatasetCreator:
         df = pd.read_json(file_path, compression="bz2", lines=True)[
             ["id", "created_at", "text", "retweet_count"]
         ].dropna()
-        df["text_clean"] = df["text"].map(lambda x: self.preprocessor.cleaner(x))
+        df["text_clean"] = df["text"].map(lambda x: TweetsPreprocessor.cleaner(x))
         df["language"] = df["text"].map(
-            lambda x: self.preprocessor.detect_language_or_null(x)
+            lambda x: TweetsPreprocessor.detect_language_or_null(x)
         )
         df = df[df["language"] == "en"]
         return df
@@ -76,7 +75,6 @@ class TrollsDatasetCreator:
         Args:
             raw_input_data_csv: directory where the raw trolls twittees is held f.e. '../data/provided_offline/tweets.csv'
         """
-        self.preprocessor = TweetsPreprocessor()
         self.raw_input_data_csv = raw_input_data_csv
 
     def generate_dataset(self, output_file: str):
@@ -96,13 +94,14 @@ class TrollsDatasetCreator:
         df = pd.read_csv(self.raw_input_data_csv)[
             ["tweet_id", "created_at", "text", "retweet_count"]
         ]
+        df = df.sample(1000)
         df = df.rename(columns={"tweet_id": "id"})
         df["created_at"] = pd.to_datetime(df["created_at"], unit="ms")
         df["retweet_count"] = df.retweet_count.fillna(0)
 
-        df["text_clean"] = df["text"].map(lambda x: self.preprocessor.cleaner(x))
+        df["text_clean"] = df["text"].map(lambda x: TweetsPreprocessor.cleaner(x))
         df["language"] = df["text"].map(
-            lambda x: self.preprocessor.detect_language_or_null(x)
+            lambda x: TweetsPreprocessor.detect_language_or_null(x)
         )
         df = df[df["language"] == "en"]
         df["is_troll"] = True
@@ -117,16 +116,16 @@ if __name__ == "__main__":
     non_trolls_output_file = "../data/preprocessed/non_trolls.csv"
     ds_creator = ExternalDatasetCreator(external_data_dir)
     ds_creator.generate_dataset(non_trolls_output_file, 400)
-    #
-    # provided_data_file = "../data/provided_offline/tweets.csv"
-    # trolls_output_file = "../data/preprocessed/trolls.csv"
-    # trolls_ds_creator = TrollsDatasetCreator(provided_data_file)
-    # trolls_ds_creator.generate_dataset(trolls_output_file)
 
-    # df = pd.concat(
-    #     [
-    #         pd.read_csv(non_trolls_output_file),
-    #         pd.read_csv(trolls_output_file),
-    #     ]
-    # )
-    # df.to_csv("../data/dataset.csv", index=False)
+    provided_data_file = "../data/provided_offline/tweets.csv"
+    trolls_output_file = "../data/preprocessed/trolls.csv"
+    trolls_ds_creator = TrollsDatasetCreator(provided_data_file)
+    trolls_ds_creator.generate_dataset(trolls_output_file)
+
+    df = pd.concat(
+        [
+            pd.read_csv(non_trolls_output_file),
+            pd.read_csv(trolls_output_file),
+        ]
+    )
+    df.to_csv("../data/dataset.csv", index=False)

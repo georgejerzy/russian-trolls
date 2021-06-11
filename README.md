@@ -19,6 +19,9 @@ in browsing millions of Twitter users.
 - Please check notebooks for more notes:
   - 1_users_initial_eda.ipynb  
   - 2_tweets_initial_eda.ipynb 
+  
+- topic modelling would be valuable at this stage to answer the question of what
+is specyfic for those tweets - that was unfrotunately skipped due to time limitation.
 
 3. External dataset
 - It would be quite time consuming to extract proper data over Twitter API,
@@ -68,3 +71,5 @@ python3.8  -m ipykernel install --user --name=russian-trolls
 ```
 
 ### building production images
+
+
