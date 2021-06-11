@@ -2,6 +2,8 @@ data/
 .idea/
 venv/
 app_api/venv
+app_api/artifacts
+artifacts
 
 
 # Byte-compiled / optimized / DLL files

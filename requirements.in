@@ -12,3 +12,4 @@ emoji
 nltk
 shap
 langdetect
+transformers

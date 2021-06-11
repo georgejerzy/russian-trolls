@@ -33,7 +33,9 @@ cffi==1.14.5
 chardet==4.0.0
     # via requests
 click==8.0.1
-    # via nltk
+    # via
+    #   nltk
+    #   sacremoses
 cloudpickle==1.6.0
     # via shap
 cycler==0.10.0
@@ -48,6 +50,10 @@ emoji==1.2.0
     # via -r requirements.in
 entrypoints==0.3
     # via nbconvert
+filelock==3.0.12
+    # via
+    #   huggingface-hub
+    #   transformers
 flatbuffers==1.12
     # via tensorflow
 gast==0.4.0
@@ -68,6 +74,8 @@ h5py==3.1.0
     # via tensorflow
 htmlmin==0.1.12
     # via pandas-profiling
+huggingface-hub==0.0.8
+    # via transformers
 idna==2.10
     # via requests
 imagehash==4.2.0
@@ -104,6 +112,7 @@ joblib==1.0.1
     #   nltk
     #   pandas-profiling
     #   phik
+    #   sacremoses
     #   scikit-learn
 jsonschema==3.2.0
     # via nbformat
@@ -203,13 +212,16 @@ numpy==1.19.5
     #   shap
     #   tensorboard
     #   tensorflow
+    #   transformers
     #   visions
 oauthlib==3.1.1
     # via requests-oauthlib
 opt-einsum==3.3.0
     # via tensorflow
 packaging==20.9
-    # via bleach
+    # via
+    #   bleach
+    #   transformers
 pandas-profiling==3.0.0
     # via -r requirements.in
 pandas==1.2.4
@@ -295,18 +307,25 @@ qtconsole==5.1.0
 qtpy==1.9.0
     # via qtconsole
 regex==2021.4.4
-    # via nltk
+    # via
+    #   nltk
+    #   sacremoses
+    #   transformers
 requests-oauthlib==1.3.0
     # via google-auth-oauthlib
 requests==2.25.1
     # via
+    #   huggingface-hub
     #   pandas-profiling
     #   requests-oauthlib
     #   tensorboard
+    #   transformers
 retrying==1.3.3
     # via plotly
 rsa==4.7.2
     # via google-auth
+sacremoses==0.0.45
+    # via transformers
 scikit-learn==0.24.2
     # via
     #   -r requirements.in
@@ -347,6 +366,7 @@ six==1.15.0
     #   protobuf
     #   python-dateutil
     #   retrying
+    #   sacremoses
     #   tensorflow
 slicer==0.0.7
     # via shap
@@ -372,6 +392,8 @@ testpath==0.5.0
     # via nbconvert
 threadpoolctl==2.1.0
     # via scikit-learn
+tokenizers==0.10.3
+    # via transformers
 tornado==6.1
     # via
     #   ipykernel
@@ -381,9 +403,12 @@ tornado==6.1
 tqdm==4.61.0
     # via
     #   -r requirements.in
+    #   huggingface-hub
     #   nltk
     #   pandas-profiling
+    #   sacremoses
     #   shap
+    #   transformers
 traitlets==5.0.5
     # via
     #   ipykernel
@@ -397,6 +422,8 @@ traitlets==5.0.5
     #   nbformat
     #   notebook
     #   qtconsole
+transformers==4.6.1
+    # via -r requirements.in
 typing-extensions==3.7.4.3
     # via
     #   pydantic
