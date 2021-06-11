@@ -1,0 +1,11 @@
+pandas
+numpy
+scikit-learn
+tensorflow
+transformers
+langdetect
+pip-tools
+pandas
+Flask
+gunicorn
+flask_httpauth

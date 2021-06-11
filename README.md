@@ -51,12 +51,15 @@ Results of training
 - Considering above, it still showes quite entertaining results and gives hope for 
   more precise results on bigger dataset and eventually more sophiscicated model.
 
-6. Doker container exposing API
+6. API app
+
+Please see `app_api/README.md` for more details.
 
 7. Doker container with demo.
 
+Please see `app_demo/README.md` for more details.
 
-### research environment setup
+# Research environment setup
 
 ```bash
 python3.8 -m venv venv
@@ -70,6 +73,5 @@ python3.8  -m ipykernel install --user --name=russian-trolls
 
 ```
 
-### building production images
 
 
