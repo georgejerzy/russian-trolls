@@ -88,13 +88,12 @@ class TrollsDatasetCreator:
 
         logging.info(f"Loading & preprocessing data from {self.raw_input_data_csv}")
         logging.warning(
-            f"This method is not yet optimised for speed, it can take up to 10 minutes!"
+            f"This method is not yet optimised for speed, it can take few minutes!"
         )
 
         df = pd.read_csv(self.raw_input_data_csv)[
             ["tweet_id", "created_at", "text", "retweet_count"]
         ]
-        df = df.sample(1000)
         df = df.rename(columns={"tweet_id": "id"})
         df["created_at"] = pd.to_datetime(df["created_at"], unit="ms")
         df["retweet_count"] = df.retweet_count.fillna(0)
