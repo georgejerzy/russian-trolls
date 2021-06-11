@@ -13,3 +13,7 @@ nltk
 shap
 langdetect
 transformers
+Flask
+gunicorn
+flask_httpauth
+streamlit

@@ -6,7 +6,8 @@
 
 There is a single POST endpoint that with provided tweet text, will return binary prediction and float probability of tweet being authored by russian troll.
 
-Code is prepared for the authorisation via Authorisation Bearer, but this needs to be further developed.
+Code is prepared for the authorisation via Authorisation Bearer, but this needs to 
+be integrated with some sort of secret manger.
 
 Local deployment request:
 ```bash
@@ -22,13 +23,22 @@ Responce:
 ```JSON
 {
     "is_troll": false,
-    "is_troll_probability": 0.5426
+    "is_troll_probability": 0.1566646844148636
 }
 ```
 
 # running & deployment
 
+## runing in Docker
 
+```bash
+#building image:
+docker build . -t troll-classification
+
+#running locally:
+docker run -p 8090:8090 troll-classification
+
+```
 ## runnig locally (for developement purposes)
 
 This service assumes to be run in linux based OS.
@@ -47,7 +57,7 @@ pip install -r requirements.txt #installing dependencies
 ```
 
 ```bash
-python3.8 main.py #running locally, API is available on localhost
+ARTIFACTS_DIR="/home/jerzy/russian-trolls/artifacts/trolls_classifier_20210611T220639" python3.8 main.py 
 ```
 
 
@@ -57,13 +67,4 @@ python3.8 main.py #running locally, API is available on localhost
 pip-compile #will compile reqirements.in to reqirements.txt
 pip-install -r requirements.txt
 ```
-## runing in Docker
 
-```bash
-#building image:
-docker build . -t troll-classification
-
-#running locally:
-docker run -p 8090:8090 troll-classification
-
-```

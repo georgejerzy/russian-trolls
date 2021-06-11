@@ -1,8 +1,11 @@
 import transformers
 from transformers import TFDistilBertForSequenceClassification, AutoTokenizer
 from transformers import pipeline
-from tweets_preprocessor import TweetsPreprocessor
-import shap
+import sys
+
+sys.path.insert(0, "..")
+
+from russian_trolls.tweets_preprocessor import TweetsPreprocessor
 
 
 def load_pipeline(artifact_dir: str) -> transformers.Pipeline:
@@ -48,22 +51,6 @@ def predict_single_tweet(
     raise KeyError("Could not parse model output")
 
 
-def get_shap_values(
-    classificator_pipeline: pipeline, tweet_text: str
-) -> shap._explanation.Explanation:
-    """
-    Calculates shapley values of provided tweet tweet_text.
-    Args:
-        classificator_pipeline: pipeline
-        tweet_text: tweet text
-
-    Returns:
-        shapley values explanation object - to be used as shap.plots.text(shap_values[:,:,"LABEL_1"])
-    """
-    explainer = shap.Explainer(classificator_pipeline, classificator_pipeline.tokenizer)
-    return explainer([tweet_text])
-
-
 if __name__ == "__main__":
 
     classificator_pipeline = load_pipeline(
@@ -72,13 +59,6 @@ if __name__ == "__main__":
 
     print(
         predict_single_tweet(
-            classificator_pipeline,
-            "WATCH🚨 Terrorist experts: Obama is the founder of ISIS",
-        )
-    )
-
-    print(
-        get_shap_values(
             classificator_pipeline,
             "WATCH🚨 Terrorist experts: Obama is the founder of ISIS",
         )

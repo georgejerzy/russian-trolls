@@ -2,10 +2,12 @@ pandas
 numpy
 scikit-learn
 tensorflow
-transformers
+scipy
+tqdm
+emoji
+nltk
 langdetect
-pip-tools
-pandas
+transformers
 Flask
 gunicorn
 flask_httpauth

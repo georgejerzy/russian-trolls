@@ -8,33 +8,69 @@ absl-py==0.12.0
     # via
     #   tensorboard
     #   tensorflow
+altair==4.1.0
+    # via streamlit
+argon2-cffi==20.1.0
+    # via notebook
+astor==0.8.1
+    # via streamlit
 astunparse==1.6.3
     # via tensorflow
+async-generator==1.10
+    # via nbclient
+attrs==21.2.0
+    # via jsonschema
+backcall==0.2.0
+    # via ipython
+base58==2.1.0
+    # via streamlit
+bleach==3.3.0
+    # via nbconvert
+blinker==1.4
+    # via streamlit
 cachetools==4.2.2
-    # via google-auth
+    # via
+    #   google-auth
+    #   streamlit
 certifi==2021.5.30
     # via requests
+cffi==1.14.5
+    # via argon2-cffi
 chardet==4.0.0
     # via requests
-click==8.0.1
+click==7.1.2
     # via
-    #   flask
-    #   pip-tools
+    #   nltk
     #   sacremoses
+    #   streamlit
+cloudpickle==1.6.0
+    # via shap
+cycler==0.10.0
+    # via matplotlib
+decorator==4.4.2
+    # via
+    #   ipython
+    #   validators
+defusedxml==0.7.1
+    # via nbconvert
+emoji==1.2.0
+    # via -r requirements.in
+entrypoints==0.3
+    # via
+    #   altair
+    #   nbconvert
 filelock==3.0.12
     # via
     #   huggingface-hub
     #   transformers
-flask-httpauth==4.4.0
-    # via -r requirements.in
-flask==2.0.1
-    # via
-    #   -r requirements.in
-    #   flask-httpauth
 flatbuffers==1.12
     # via tensorflow
 gast==0.4.0
     # via tensorflow
+gitdb==4.0.7
+    # via gitpython
+gitpython==3.1.17
+    # via streamlit
 google-auth-oauthlib==0.4.4
     # via tensorboard
 google-auth==1.31.0
@@ -47,41 +83,114 @@ grpcio==1.34.1
     # via
     #   tensorboard
     #   tensorflow
-gunicorn==20.1.0
-    # via -r requirements.in
 h5py==3.1.0
     # via tensorflow
 huggingface-hub==0.0.8
     # via transformers
 idna==2.10
     # via requests
-itsdangerous==2.0.1
-    # via flask
+ipykernel==5.5.5
+    # via
+    #   ipywidgets
+    #   notebook
+    #   pydeck
+ipython-genutils==0.2.0
+    # via
+    #   nbformat
+    #   notebook
+    #   traitlets
+ipython==7.24.1
+    # via
+    #   ipykernel
+    #   ipywidgets
+ipywidgets==7.6.3
+    # via pydeck
+jedi==0.18.0
+    # via ipython
 jinja2==3.0.1
-    # via flask
+    # via
+    #   altair
+    #   nbconvert
+    #   notebook
+    #   pydeck
 joblib==1.0.1
     # via
+    #   nltk
     #   sacremoses
     #   scikit-learn
+jsonschema==3.2.0
+    # via
+    #   altair
+    #   nbformat
+jupyter-client==6.1.12
+    # via
+    #   ipykernel
+    #   nbclient
+    #   notebook
+jupyter-core==4.7.1
+    # via
+    #   jupyter-client
+    #   nbconvert
+    #   nbformat
+    #   notebook
+jupyterlab-pygments==0.1.2
+    # via nbconvert
+jupyterlab-widgets==1.0.0
+    # via ipywidgets
 keras-nightly==2.5.0.dev2021032900
     # via tensorflow
 keras-preprocessing==1.1.2
     # via tensorflow
+kiwisolver==1.3.1
+    # via matplotlib
 langdetect==1.0.9
     # via -r requirements.in
+llvmlite==0.36.0
+    # via numba
 markdown==3.3.4
     # via tensorboard
 markupsafe==2.0.1
     # via jinja2
+matplotlib-inline==0.1.2
+    # via ipython
+matplotlib==3.4.2
+    # via -r requirements.in
+mistune==0.8.4
+    # via nbconvert
+nbclient==0.5.3
+    # via nbconvert
+nbconvert==6.0.7
+    # via notebook
+nbformat==5.1.3
+    # via
+    #   ipywidgets
+    #   nbclient
+    #   nbconvert
+    #   notebook
+nest-asyncio==1.5.1
+    # via nbclient
+nltk==3.6.2
+    # via -r requirements.in
+notebook==6.4.0
+    # via widgetsnbextension
+numba==0.53.1
+    # via shap
 numpy==1.19.5
     # via
     #   -r requirements.in
+    #   altair
     #   h5py
     #   keras-preprocessing
+    #   matplotlib
+    #   numba
     #   opt-einsum
     #   pandas
+    #   pyarrow
+    #   pydeck
     #   scikit-learn
     #   scipy
+    #   shap
+    #   streamlit
     #   tensorboard
     #   tensorflow
     #   transformers
@@ -90,31 +199,81 @@ oauthlib==3.1.1
 opt-einsum==3.3.0
     # via tensorflow
 packaging==20.9
-    # via transformers
+    # via
+    #   bleach
+    #   streamlit
+    #   transformers
 pandas==1.2.4
-    # via -r requirements.in
-pep517==0.10.0
-    # via pip-tools
-pip-tools==6.1.0
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   altair
+    #   shap
+    #   streamlit
+pandocfilters==1.4.3
+    # via nbconvert
+parso==0.8.2
+    # via jedi
+pexpect==4.8.0
+    # via ipython
+pickleshare==0.7.5
+    # via ipython
+pillow==8.2.0
+    # via
+    #   matplotlib
+    #   streamlit
+prometheus-client==0.11.0
+    # via notebook
+prompt-toolkit==3.0.18
+    # via ipython
 protobuf==3.17.3
     # via
+    #   streamlit
     #   tensorboard
     #   tensorflow
+ptyprocess==0.7.0
+    # via
+    #   pexpect
+    #   terminado
+pyarrow==4.0.1
+    # via streamlit
 pyasn1-modules==0.2.8
     # via google-auth
 pyasn1==0.4.8
     # via
     #   pyasn1-modules
     #   rsa
+pycparser==2.20
+    # via cffi
+pydeck==0.6.2
+    # via streamlit
+pygments==2.9.0
+    # via
+    #   ipython
+    #   jupyterlab-pygments
+    #   nbconvert
 pyparsing==2.4.7
-    # via packaging
+    # via
+    #   matplotlib
+    #   packaging
+pyrsistent==0.17.3
+    # via jsonschema
 python-dateutil==2.8.1
-    # via pandas
+    # via
+    #   jupyter-client
+    #   matplotlib
+    #   pandas
+    #   streamlit
 pytz==2021.1
-    # via pandas
+    # via
+    #   pandas
+    #   tzlocal
+pyzmq==22.1.0
+    # via
+    #   jupyter-client
+    #   notebook
 regex==2021.4.4
     # via
+    #   nltk
     #   sacremoses
     #   transformers
 requests-oauthlib==1.3.0
@@ -123,6 +282,7 @@ requests==2.25.1
     # via
     #   huggingface-hub
     #   requests-oauthlib
+    #   streamlit
     #   tensorboard
     #   transformers
 rsa==4.7.2
@@ -130,22 +290,42 @@ rsa==4.7.2
 sacremoses==0.0.45
     # via transformers
 scikit-learn==0.24.2
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   shap
 scipy==1.6.3
-    # via scikit-learn
+    # via
+    #   -r requirements.in
+    #   scikit-learn
+    #   shap
+send2trash==1.5.0
+    # via notebook
+shap==0.39.0
+    # via -r requirements.in
 six==1.15.0
     # via
     #   absl-py
+    #   argon2-cffi
     #   astunparse
+    #   bleach
+    #   cycler
     #   google-auth
     #   google-pasta
     #   grpcio
+    #   jsonschema
     #   keras-preprocessing
     #   langdetect
     #   protobuf
     #   python-dateutil
     #   sacremoses
     #   tensorflow
+    #   validators
+slicer==0.0.7
+    # via shap
+smmap==4.0.0
+    # via gitdb
+streamlit==0.82.0
+    # via -r requirements.in
 tensorboard-data-server==0.6.1
     # via tensorboard
 tensorboard-plugin-wit==1.8.0
@@ -158,35 +338,73 @@ tensorflow==2.5.0
     # via -r requirements.in
 termcolor==1.1.0
     # via tensorflow
+terminado==0.10.1
+    # via notebook
+testpath==0.5.0
+    # via nbconvert
 threadpoolctl==2.1.0
     # via scikit-learn
 tokenizers==0.10.3
     # via transformers
 toml==0.10.2
-    # via pep517
+    # via streamlit
+toolz==0.11.1
+    # via altair
+tornado==6.1
+    # via
+    #   ipykernel
+    #   jupyter-client
+    #   notebook
+    #   streamlit
+    #   terminado
 tqdm==4.61.0
     # via
+    #   -r requirements.in
     #   huggingface-hub
+    #   nltk
     #   sacremoses
+    #   shap
     #   transformers
+traitlets==5.0.5
+    # via
+    #   ipykernel
+    #   ipython
+    #   ipywidgets
+    #   jupyter-client
+    #   jupyter-core
+    #   matplotlib-inline
+    #   nbclient
+    #   nbconvert
+    #   nbformat
+    #   notebook
+    #   pydeck
 transformers==4.6.1
     # via -r requirements.in
 typing-extensions==3.7.4.3
     # via tensorflow
+tzlocal==2.1
+    # via streamlit
 urllib3==1.26.5
     # via requests
+validators==0.18.2
+    # via streamlit
+watchdog==2.1.2
+    # via streamlit
+wcwidth==0.2.5
+    # via prompt-toolkit
+webencodings==0.5.1
+    # via bleach
 werkzeug==2.0.1
-    # via
-    #   flask
-    #   tensorboard
+    # via tensorboard
 wheel==0.36.2
     # via
     #   astunparse
     #   tensorboard
     #   tensorflow
+widgetsnbextension==3.5.1
+    # via ipywidgets
 wrapt==1.12.1
     # via tensorflow
 
 # The following packages are considered to be unsafe in a requirements file:
-# pip
 # setuptools

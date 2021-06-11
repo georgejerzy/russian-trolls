@@ -2,13 +2,23 @@ import os
 from flask import Flask, jsonify
 from flask import request, abort, Response
 from flask_httpauth import HTTPTokenAuth
+import sys
+
+sys.path.insert(0, "..")
+from russian_trolls import model_predict
+
+classificator_pipeline = model_predict.load_pipeline(
+    os.environ.get(
+        "ARTIFACTS_DIR"
+    )  # f.e. ../artifacts/trolls_classifier_20210611T220639
+)
 
 
 app = Flask(__name__)
 auth = HTTPTokenAuth(scheme="Bearer")
 
 tokens = {
-    "TOP_SECRET": "troll_classifier_token",
+    "TOP_SECRET": "troll_classifier_token",  # todo: here itegrate wiht some secret storage service
 }
 
 
@@ -33,9 +43,11 @@ def get_cart():
         )
 
     tweet_text = request.json.get("tweet_text")
-    # c = CartCreator(questionaire_answers)
-
-    return jsonify({"is_troll": False, "is_troll_probability": 0.5})
+    prediction, probability = model_predict.predict_single_tweet(
+        classificator_pipeline,
+        tweet_text,
+    )
+    return jsonify({"is_troll": prediction, "is_troll_probability": probability})
 
 
 if __name__ == "__main__":

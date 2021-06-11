@@ -1,9 +1,12 @@
-FROM python:3.8-slim
+FROM python:3.8
+EXPOSE 8501
+WORKDIR /app
+COPY app_demo/requirements.txt ./requirements.txt
+COPY app_demo/main.py ./main.py
+COPY artifacts ./artifacts
+COPY russian_trolls ./russian_trolls
+ENV ARTIFACTS_DIR ./artifacts/trolls_classifier_20210611T220639
 
-ENV APP_HOME /app
-WORKDIR $APP_HOME
-COPY . ./
+RUN pip3 install -r requirements.txt
+CMD streamlit run app.py
 
-RUN pip install -r /app/requirements.txt
-
-CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 main:app

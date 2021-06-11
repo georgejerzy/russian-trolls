@@ -54,10 +54,13 @@ Results of training
 6. API app
 
 Please see `app_api/README.md` for more details.
+![alt text](data/img_1.png "demo")
 
-7. Doker container with demo.
+7. Demo app
 
 Please see `app_demo/README.md` for more details.
+![alt text](data/img.png "demo")
+
 
 # Research environment setup
 
