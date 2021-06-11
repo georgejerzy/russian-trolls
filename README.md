@@ -2,9 +2,15 @@
 This is my attempt to build a classification model for the problem stated here:
 https://www.kaggle.com/vikasg/russian-troll-tweets
 
+### todo: describe
 
+- interesing papers
 
+- te take data from outside:
+    - we take only english - it's for english market, let's focus on english
 
+- formatter : black
+- docsting: google
 
 
 ### research environment setup

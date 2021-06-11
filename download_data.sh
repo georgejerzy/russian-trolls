@@ -15,7 +15,6 @@ do
 done
 
 echo "Downloading additional tweeter dataset."
-
 cd data || exit
 
 FILE=./twitter-stream-2017-09-10.tar
