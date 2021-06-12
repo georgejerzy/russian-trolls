@@ -1,6 +1,7 @@
 import streamlit as st
 import sys, os
 import matplotlib.pyplot as pl
+from streamlit import components
 
 sys.path.insert(0, "..")
 from russian_trolls import model_predict
@@ -25,6 +26,8 @@ input_sent = st.text_input(
 
 st.write(model_predict.predict_single_tweet(classificator_pipeline, input_sent))
 
-st.write(shap.plots.text(explainer([input_sent])[:, :, "LABEL_1"]))
-st.pyplot(bbox_inches="tight")
-pl.clf()
+
+# todo: this is what I really wanted this app to show, unfortunately, this particular methid from shap library deesnt return plot object nor html
+shap.plots.text(
+    explainer([input_sent])[:, :, "LABEL_1"],
+)

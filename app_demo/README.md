@@ -8,9 +8,9 @@ This is simple
 
 ```bash
 #building image:
-docker build . -t troll-classification
+docker build -f app_demo/Dockerfile -t troll-classification-demo .
 
 #running locally:
-docker run -p 8090:8090 troll-classification
+docker run -p 8090:8090 troll-classification-demo
 
 ```
