@@ -50,16 +50,21 @@ Results of training
   to politics, not necessary the russian trolls tweets.
 - Considering above, it still showes quite entertaining results and gives hope for 
   more precise results on bigger dataset and eventually more sophiscicated model.
+  example:
+  ![alt text](img/img_3.png "demo")
+- nice shapley plotting is applied in the training notebook:
+  ![alt text](img/img_2.png "demo")
+
 
 6. API app
 
 Please see `app_api/README.md` for more details.
-![alt text](data/img_1.png "demo")
+![alt text](img/img_1.png "demo")
 
 7. Demo app
 
 Please see `app_demo/README.md` for more details.
-![alt text](data/img.png "demo")
+![alt text](img/img.png "demo")
 
 
 # Research environment setup
