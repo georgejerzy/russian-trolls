@@ -8,5 +8,5 @@ COPY russian_trolls ./russian_trolls
 ENV ARTIFACTS_DIR ./artifacts/trolls_classifier_20210611T220639
 
 RUN pip3 install -r requirements.txt
-CMD streamlit run app.py
+CMD streamlit run main.py
 

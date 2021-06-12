@@ -27,7 +27,8 @@ is specyfic for those tweets - that was unfrotunately skipped due to time limita
 - It would be quite time consuming to extract proper data over Twitter API,
 thus I've decided to use already extracted blob of tweets as samples:
   https://archive.org/download/archiveteam-twitter-stream-2017-09
--   one can use `download_data.sh` script to download the extenal blob
+-   one can use `download_data.sh` script to be informed where to placed off-line
+    provide data and to download automatically the extenal blob
 
 4. Preprocessing
 - to make training easier, a ready-to-use dataset csv file with both classes 
@@ -41,16 +42,16 @@ thus I've decided to use already extracted blob of tweets as samples:
 - off-the shelf model was used in order to quicly reach the results, one can find 
   more details in `5_model_training_tensorflow` notebook.
 - in practice, pre-trained DistilBERT model with it's tokeniser was used: https://huggingface.co/transformers/model_doc/distilbert.html
-- **model was fine-tuned only on 20000 samples - that is another simplification
+- **model was fine-tuned only on 50000 samples - that is another simplification
 just to reach the results faster**
 - the interpretation was practiced using shap library
 
 Results of training 
-- It seems that the prepared model right is trained to recognise a tweets related 
-  to politics, not necessary the russian trolls tweets.
+- It seems that the prepared model  is trained to recognise a tweets related 
+  to politics, not necessary only precisely russian trolls tweets.
 - Considering above, it still showes quite entertaining results and gives hope for 
   more precise results on bigger dataset and eventually more sophiscicated model.
-  example:
+  Example:
   ![alt text](img/img_3.png "demo")
 - nice shapley plotting is applied in the training notebook:
   ![alt text](img/img_2.png "demo")
